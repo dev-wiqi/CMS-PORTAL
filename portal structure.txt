@@ -1,0 +1,40 @@
+news database :
+	- id
+	- name/title
+	- categories
+	- date
+	- author
+	- source
+	- status
+	
+image database :
+	- id
+	- categories
+	- article
+	- status
+	
+visitor database :
+	- id
+	- ip
+	- date
+	- browser
+	
+	
+	
+	
+	
+	
+	structure portal : 
+		- categories -> sub categories
+		- page -> sub page
+		- image -> img.sumbernews.com
+		- layout news -> gallery -> news with 1 image -> news with slider image
+		
+	news structure :
+		- Popular News
+		- Breaking News
+		
+	permission structure :
+		- Administrator
+		- Editor
+		- Writer

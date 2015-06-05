@@ -55,7 +55,7 @@ class models_admin extends CI_model {
         $que = $this->db_admin->get_where("wq_userlogin",$where);
         $value .= '<span class="profile">';
         foreach($que->result() as $a){
-            $value .= '<a class="img" href="'.base_url().'myaccount/'.$a->tb_id_userlogin.'"><img src="'.$this->config->item("image_url").'user/avatar/'.$a->tb_image_userlogin.'" alt="'.$a->tb_name_userlogin.'" /></a>';
+            $value .= '<a class="img" href="'.base_url().'myaccount/'.$a->tb_id_userlogin.'"><img src="'.$this->config->item("image_url").'user/'.$a->tb_image_userlogin.'" alt="'.$a->tb_name_userlogin.'" /></a>';
             $value .= '<span><strong>Welcome</strong><a href="'.base_url().'myaccount/'.$a->tb_id_userlogin.'" class="glyphicons right_arrow">'.$a->tb_name_userlogin.' <i></i></a></span>';
           }
         $value .= '</span></span>';
@@ -345,7 +345,7 @@ class models_admin extends CI_model {
               return $value;
         }
         elseif($data=='news'){
-            $que = $this->db->get_where("wq_news",$where);
+            $que = $this->db->get_where("wq_news");
             foreach ($que->result_array() as $a){
                 if($a['tb_status_news'] === 1){$status="Publish";}elseif ($a['tb_status_news'] === 2){$status = "Moderation";}else{$status = "Not Publish";}
                 $value .= '<tr><td>'.$a['tb_id_news'].'</td>
@@ -432,5 +432,7 @@ class models_admin extends CI_model {
           }
           return $value;
       }
+      
+   
       
     }
