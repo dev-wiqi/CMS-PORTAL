@@ -40,7 +40,7 @@ class models_admin extends CI_model {
         $value .= '<ul class="top-menu">';
         $value .= '<li class="dropdown">';
         foreach($que->result() as $a){
-            $value .= '<a class="user-menu" data-toggle="dropdown"><img src="http://img.tramedifa.com/user/"'.$a->tb_image_userlogin.'" alt="" /><span>Howdy, '.$a->tb_name_userlogin.'! <b class="caret"></b></span></a>';
+            $value .= '<a class="user-menu" data-toggle="dropdown"><img src="'.$this->config->item("image_url").'"'.$a->tb_image_userlogin.'" alt="" /><span>Howdy, '.$a->tb_name_userlogin.'! <b class="caret"></b></span></a>';
             $value .= '<ul class="dropdown-menu">';
             $value .= '<li><a href="'.base_url().$this->perm_user.'/profile.aspx" title=""><i class="icon-user"></i>Profile</a></li>';
             $value .= '<li><a href="'.base_url().'auth/auth_logout.aspx" title=""><i class="icon-remove"></i>Logout</a></li>';
@@ -55,7 +55,7 @@ class models_admin extends CI_model {
         $que = $this->db_admin->get_where("wq_userlogin",$where);
         $value .= '<span class="profile">';
         foreach($que->result() as $a){
-            $value .= '<a class="img" href="'.base_url().'myaccount/'.$a->tb_id_userlogin.'"><img src="'. base_url().'media/user/avatar/'.$a->tb_image_userlogin.'" alt="'.$a->tb_name_userlogin.'" /></a>';
+            $value .= '<a class="img" href="'.base_url().'myaccount/'.$a->tb_id_userlogin.'"><img src="'.$this->config->item("image_url").'user/avatar/'.$a->tb_image_userlogin.'" alt="'.$a->tb_name_userlogin.'" /></a>';
             $value .= '<span><strong>Welcome</strong><a href="'.base_url().'myaccount/'.$a->tb_id_userlogin.'" class="glyphicons right_arrow">'.$a->tb_name_userlogin.' <i></i></a></span>';
           }
         $value .= '</span></span>';
@@ -343,6 +343,24 @@ class models_admin extends CI_model {
                                 </tr>';  
                  }
               return $value;
+        }
+        elseif($data=='news'){
+            $que = $this->db->get_where("wq_news",$where);
+            foreach ($que->result_array() as $a){
+                if($a['tb_status_news'] === 1){$status="Publish";}elseif ($a['tb_status_news'] === 2){$status = "Moderation";}else{$status = "Not Publish";}
+                $value .= '<tr><td>'.$a['tb_id_news'].'</td>
+                                    <td>'.word_limiter($a['tb_name_news'],20).'</td>
+                                    <td>'.$a['tb_categories_news'].'</td>
+                                    <td>'.word_limiter($a['tb_source_news'],20).'</td>
+                                    <td>'.$status.'</td>
+                                    <td>
+                                        <ul class="navbar-icons">
+                                            <li><a href="'.base_url().$this->perm_user.'/news/update/'.$a['tb_id_categories'].'/'.url_title($a['tb_name_categories']).'.aspx" class="tip" title="Edit Content"><i class="fam-pencil"></i></a> </li>
+                                            <li><a href="'.base_url().$this->perm_user.'/news/delete/'.$a['tb_id_categories'].'/'.url_title($a['tb_name_categories']).'.aspx" class="tip" title="Remove Content"><i class="fam-cross"></i></a> </li>
+                                        </ul>
+                                    </td>
+                                </tr>';  
+            }
         }
              
       }

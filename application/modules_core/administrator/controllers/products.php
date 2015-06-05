@@ -23,7 +23,7 @@ class products extends MX_Controller {
     
     public function index(){
         if ($this->perm_user=="administrator" && $this->logged_in=="ikehikehkimochi"){
-        $a['title'] = "SamMarie Application";
+        $a['title'] = "Products";
         $a['permission'] = $this->perm_user;
         $a['mweb'] = $this->models_admin->menu("web",$this->perm_user);
         $a['mblog'] = $this->models_admin->menu("blog",  $this->perm_user);
@@ -86,7 +86,7 @@ class products extends MX_Controller {
             $config['max_width']  	= '3000';
             $config['max_height']  	= '3000';
 			 
-            $this->load->library('MY_upload');
+            $this->load->library('MY_Upload');
             
             $this->upload->initialize($config);
             

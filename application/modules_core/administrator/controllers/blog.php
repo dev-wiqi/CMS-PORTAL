@@ -22,7 +22,7 @@ class blog extends MX_Controller {
     
     public function index(){
         if ($this->perm_user=="administrator" && $this->logged_in=="ikehikehkimochi"){
-        $a['title'] = "SamMarie Application";
+        $a['title'] = "Blog";
         $a['link'] = $this->perm_user."/blog/add";
         $a['permission'] = $this->perm_user;
         $a['mweb'] = $this->models_admin->menu("web",$this->perm_user);

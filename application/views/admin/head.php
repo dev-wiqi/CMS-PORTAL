@@ -3,7 +3,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
-<title><?php echo $title; ?>&nbsp;- Tramedifa Web Management System</title>
+<title><?php echo $title; ?>&nbsp;</title>
 <link href="<?php echo base_url(); ?>assetsCI/css/main.css" rel="stylesheet" type="text/css" />
 <!--[if IE 8]><link href="css/ie8.css" rel="stylesheet" type="text/css" /><![endif]-->
  <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,600,700' rel='stylesheet' type='text/css'>
@@ -62,7 +62,7 @@
 	<!-- Fixed top -->
 	<div id="top">
 		<div class="fixed">
-			<a href="index.html" title="" class="logo"><img src="http://img.tramedifa.com/media/logo.png" alt="" /></a>
+			<a href="<?php echo base_url(); ?>" title="" class="logo"><img src="<?php echo $this->config->item("image_url"); ?>logo.png/" alt="" /></a>
 			<?php echo $profile; ?>
 		</div>
 	</div>

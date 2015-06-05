@@ -21,7 +21,7 @@ class menu_admin extends MX_Controller {
     
     function index(){
        if ($this->perm_user=="administrator" && $this->logged_in=="ikehikehkimochi"){
-        $a['title'] = "SamMarie Application";
+        $a['title'] = "Module";
         $a['permission'] = $this->perm_user;
         $a['mweb'] = $this->models_admin->menu("web",$this->perm_user);
         $a['mblog'] = $this->models_admin->menu("blog",  $this->perm_user);

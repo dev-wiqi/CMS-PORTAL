@@ -1,2 +1,2 @@
-# sammarieCMS
-sammarie CMS dengan menggunakan codeigniter
+# SumberNews CMS
+    SumberNews Portal Berita

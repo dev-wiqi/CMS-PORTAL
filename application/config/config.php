@@ -14,7 +14,7 @@
 | path to your installation.
 |
 */
-$config['base_url']	= 'http://localhost/CMS/';
+$config['base_url']	= 'http://localhost/CMS-PORTAL/';
 
 /*
 |--------------------------------------------------------------------------
@@ -26,7 +26,7 @@ $config['base_url']	= 'http://localhost/CMS/';
 | variable so that it is blank.
 |
 */
-$config['index_page'] = 'index.php';
+$config['index_page'] = '';
 
 /*
 |--------------------------------------------------------------------------
@@ -372,7 +372,7 @@ $config['modules_locations'] = array(
     APPPATH.'modules_core/' => '../modules_core/',
 );
 
-$config['image_url'] = 'http://img.tramedifa.com/';
+$config['image_url'] = 'http://img.sumbernews.com/';
 
 /* End of file config.php */
 /* Location: ./application/config/config.php */

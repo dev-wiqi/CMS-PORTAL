@@ -42,8 +42,8 @@
                                 <tr>
                                     <th>#</th>
                                     <th>Title</th>
+                                    <th>Categories</th>
                                     <th>Content</th>
-                                    <th>Categori</th>
                                     <th>Publish</th>
                                     <th>Actions</th>
                                 </tr>
