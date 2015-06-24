@@ -10,8 +10,7 @@ class counter extends CI_Model {
      * Founder & Programmer : Wisnu Groho Aji 
      * Website : http://wiqi.co
      */
-    
-   
+  
     function __construct() {
         $this->db = $this->load->database("default", TRUE);
         $this->load->library("user_agent");

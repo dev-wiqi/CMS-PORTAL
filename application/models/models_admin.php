@@ -355,8 +355,8 @@ class models_admin extends CI_model {
                                     <td>'.$status.'</td>
                                     <td>
                                         <ul class="navbar-icons">
-                                            <li><a href="'.base_url().$this->perm_user.'/news/update/'.$a['tb_id_categories'].'/'.url_title($a['tb_name_categories']).'.aspx" class="tip" title="Edit Content"><i class="fam-pencil"></i></a> </li>
-                                            <li><a href="'.base_url().$this->perm_user.'/news/delete/'.$a['tb_id_categories'].'/'.url_title($a['tb_name_categories']).'.aspx" class="tip" title="Remove Content"><i class="fam-cross"></i></a> </li>
+                                            <li><a href="'.base_url().$this->perm_user.'/news/update/'.$a['tb_id_news'].'/'.url_title($a['tb_name_news']).'.aspx" class="tip" title="Edit Content"><i class="fam-pencil"></i></a> </li>
+                                            <li><a href="'.base_url().$this->perm_user.'/news/delete/'.$a['tb_id_news'].'/'.url_title($a['tb_name_news']).'.aspx" class="tip" title="Remove Content"><i class="fam-cross"></i></a> </li>
                                         </ul>
                                     </td>
                                 </tr>';  

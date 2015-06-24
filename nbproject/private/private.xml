@@ -2,7 +2,6 @@
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
-        <group/>
         <group name="CMS">
             <file>file:/C:/wamp/www/CMS/application/models/models_admin.php</file>
             <file>file:/C:/wamp/www/CMS/application/views/admin/editproducts.php</file>
@@ -10,6 +9,21 @@
             <file>file:/C:/wamp/www/CMS/application/modules_core/administrator/controllers/content.php</file>
             <file>file:/C:/wamp/www/CMS/application/modules_core/administrator/controllers/products.php</file>
             <file>file:/C:/wamp/www/CMS/application/views/admin/products.php</file>
+        </group>
+        <group>
+            <file>file:/C:/xampp/htdocs/CMS-PORTAL/application/views/admin/head.php</file>
+            <file>file:/C:/xampp/htdocs/CMS-PORTAL/application/modules_core/administrator/controllers/menu_admin.php</file>
+            <file>file:/C:/xampp/htdocs/CMS-PORTAL/application/modules_core/administrator/controllers/products.php</file>
+            <file>file:/C:/xampp/htdocs/CMS-PORTAL/application/libraries/encrypt.php</file>
+            <file>file:/C:/xampp/htdocs/CMS-PORTAL/application/views/admin/addblog.php</file>
+            <file>file:/C:/xampp/htdocs/CMS-PORTAL/application/models/models_auth.php</file>
+            <file>file:/C:/xampp/htdocs/CMS-PORTAL/application/views/admin/blog.php</file>
+            <file>file:/C:/xampp/htdocs/CMS-PORTAL/application/models/counter.php</file>
+            <file>file:/C:/xampp/htdocs/CMS-PORTAL/application/views/admin/news.php</file>
+            <file>file:/C:/xampp/htdocs/CMS-PORTAL/application/modules_core/administrator/controllers/news.php</file>
+            <file>file:/C:/xampp/htdocs/CMS-PORTAL/application/modules_core/administrator/controllers/blog.php</file>
+            <file>file:/C:/xampp/htdocs/CMS-PORTAL/application/modules_core/auth/controllers/auth.php</file>
+            <file>file:/C:/xampp/htdocs/CMS-PORTAL/application/models/models_admin.php</file>
         </group>
     </open-files>
 </project-private>

@@ -11,7 +11,6 @@ class news extends MX_Controller {
      * Website : http://wiqi.co
      */
     
-    var $insert_id;
     
     function __construct() {
         parent::__construct();
@@ -33,9 +32,7 @@ class news extends MX_Controller {
         $a['link'] = $this->perm_user."/products/add";
         $a['profile'] = $this->models_admin->profile_top($this->session->userdata("id_user"));
         $a['content'] = $this->models_admin->content('news');
-        $this->counter->insert_visitor();
         
-       
         $this->load->view("admin/head",$a);
         $this->load->view("admin/menu");
         $this->load->view("admin/news");
