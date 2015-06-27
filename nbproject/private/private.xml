@@ -14,9 +14,10 @@
             <file>file:/C:/xampp/htdocs/CMS-PORTAL/application/views/admin/head.php</file>
             <file>file:/C:/xampp/htdocs/CMS-PORTAL/application/modules_core/administrator/controllers/menu_admin.php</file>
             <file>file:/C:/xampp/htdocs/CMS-PORTAL/application/modules_core/administrator/controllers/products.php</file>
-            <file>file:/C:/xampp/htdocs/CMS-PORTAL/application/libraries/encrypt.php</file>
             <file>file:/C:/xampp/htdocs/CMS-PORTAL/application/views/admin/addblog.php</file>
+            <file>file:/C:/xampp/htdocs/CMS-PORTAL/application/views/admin/addnews.php</file>
             <file>file:/C:/xampp/htdocs/CMS-PORTAL/application/models/models_auth.php</file>
+            <file>file:/C:/xampp/htdocs/CMS-PORTAL/application/views/admin/footer.php</file>
             <file>file:/C:/xampp/htdocs/CMS-PORTAL/application/views/admin/blog.php</file>
             <file>file:/C:/xampp/htdocs/CMS-PORTAL/application/models/counter.php</file>
             <file>file:/C:/xampp/htdocs/CMS-PORTAL/application/views/admin/news.php</file>

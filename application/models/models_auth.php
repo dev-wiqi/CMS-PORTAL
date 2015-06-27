@@ -148,4 +148,48 @@ class models_auth extends CI_Model {
         }
     }
     
+    //function For Selected Session
+    
+    function is_admin(){
+        $seslog = $this->encrypt->decode($this->session->userdata("log_in"));
+        $userlog = $this->encrypt->decode($this->session->userdata("permission"));
+        if($seslog=="ikehikehkimochi" && $userlog=="administrator"){
+            return TRUE;
+        }
+        else{
+            if (!empty($seslog)&&!empty($userlog)){
+                return redirect($userlog."/home");
+            }
+            return redirect("auth/auth");
+        }
+    }
+    
+    function is_editor(){
+        $seslog = $this->encrypt->decode($this->session->userdata("log_in"));
+        $userlog = $this->encrypt->decode($this->session->userdata("permission"));
+        if($seslog=="ikehikehkimochi" && $userlog=="editor"){
+            return TRUE;
+        }
+        else{
+            if (!empty($seslog)&&!empty($userlog)){
+                return redirect($userlog."/home");
+            }
+            return redirect("auth/");
+        }
+    }
+  
+    function is_writer(){
+        $seslog = $this->encrypt->decode($this->session->userdata("log_in"));
+        $userlog = $this->encrypt->decode($this->session->userdata("permission"));
+        if($seslog=="ikehikehkimochi" && $userlog=="writer"){
+            return TRUE;
+        }
+        else{
+            if (!empty($seslog)&&!empty($userlog)){
+                return redirect($userlog."/home");
+            }
+            return redirect("auth/");
+        }
+    }
+    
 }

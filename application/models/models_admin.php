@@ -432,7 +432,5 @@ class models_admin extends CI_model {
           }
           return $value;
       }
-      
-   
-      
+          
     }

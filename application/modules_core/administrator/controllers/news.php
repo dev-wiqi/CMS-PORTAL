@@ -16,12 +16,12 @@ class news extends MX_Controller {
         parent::__construct();
         $this->db_admin = $this->load->database("admin",TRUE);
         $this->db = $this->load->database("default", TRUE);
-        $this->logged_in=$this->encrypt->decode($this->session->userdata("log_in"));
+        $this->is_admin = $this->models_auth->is_admin();
         $this->perm_user=$this->encrypt->decode($this->session->userdata("permission"));
-    }
+        }
     
     function index(){
-        if ($this->perm_user=="administrator" && $this->logged_in=="ikehikehkimochi"){
+        $this->is_admin;
         $a['title'] = "News";
         $a['permission'] = $this->perm_user;
         $a['mweb'] = $this->models_admin->menu("web",$this->perm_user);
@@ -38,9 +38,28 @@ class news extends MX_Controller {
         $this->load->view("admin/news");
         $this->load->view("admin/footer");
         }
-        else{
-            redirect("auth/auth");
-        }
+      
+    function add(){
+        $this->is_admin;
+        $a['title'] = "SumberNews - Tambah Berita";
+        $a['title2'] = "Tambah Berita";
+        $a['permission'] = $this->perm_user;
+        $a['mweb'] = $this->models_admin->menu("web",$this->perm_user);
+        $a['mblog'] = $this->models_admin->menu("blog",  $this->perm_user);
+        $a['madmin'] = $this->models_admin->menu("admin",  $this->perm_user);
+        $a['mproducts'] = $this->models_admin->menu("products",$this->perm_user);
+        $a['profile'] = $this->models_admin->profile_top($this->session->userdata("id_user"));
+        $a['action'] = $this->perm_user."/news/save";
+        $a['link'] = $this->perm_user."/news/add";
+        $a['categories'] = $this->models_admin->categories('news',null);
+        
+        $this->load->view("admin/head",$a);
+        $this->load->view("admin/menu");
+        $this->load->view("admin/addnews");
+        $this->load->view("admin/footer");
     }
     
+    function update(){
+        
+    }
 }
