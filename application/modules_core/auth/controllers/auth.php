@@ -15,7 +15,7 @@ class auth extends MX_Controller {
         if($this->session->userdata("log_in")=="")
         {
         
-            $a['title'] = "SamMarie Login";
+            $a['title'] = "SumberNews Login";
             
             $this->form_validation->set_rules('username','Username','trim|required');
             $this->form_validation->set_rules('password','Password','trim|required');

@@ -201,15 +201,13 @@ class models_admin extends CI_model {
                  return $value;
         }
         elseif ($data=='member'){
-            $que = $this->db->get_where("wq_user");
+            $que = $this->db->get_where("wq_userlogin");
                 foreach($que->result_array() as $a){
-                if($a['tb_status_user']==1){$status="Active";}elseif ($a['tb_status_user'] == 2){$status = "Verification";}else{$status = "Blocked";}
-                $value .= '<tr><td>'.$a['tb_id_user'].'</td>
-                                    <td>'.$a['tb_name_user'].'</td>
-                                    <td>'.$a['tb_idrs_user'].'</td>
-                                    <td>'.$a['tb_bdate_user'].'</td>
-                                    <td>'.$a['tb_job_user'].'</td>
-                                    <td>'.$a['tb_photo_user'].'</td>
+                if($a['tb_status_userlogin']==1){$status="Active";}elseif ($a['tb_status_user'] == 2){$status = "Verification";}else{$status = "Blocked";}
+                $value .= '<tr><td>'.$a['tb_id_userlogin'].'</td>
+                                    <td>'.$a['tb_name_userlogin'].'</td>
+                                    <td>'.$a['tb_email_userlogin'].'</td>
+                                    <td>'.$a['tb_permission_userlogin'].'</td>
                                     <td>'.$status.'</td>
                                     <td>
                                         <ul class="navbar-icons">

@@ -21,8 +21,12 @@ class member extends MX_Controller {
     
     public function index(){
         if ($this->perm_user=="administrator" && $this->logged_in=="ikehikehkimochi"){
-        $a['title'] = "SamMarie Application";
-        $a['menu'] = $this->models_admin->simple_menu($this->perm_user);
+        $a['title'] = "SumberNews Application";
+        $a['permission'] = $this->perm_user;
+        $a['mweb'] = $this->models_admin->menu("web",$this->perm_user);
+        $a['mblog'] = $this->models_admin->menu("blog",  $this->perm_user);
+        $a['madmin'] = $this->models_admin->menu("admin",  $this->perm_user);
+        $a['mproducts'] = $this->models_admin->menu("products",$this->perm_user);
         $a['link'] = $this->perm_user."/member/add";
         $a['profile'] = $this->models_admin->profile_top($this->session->userdata("id_user"));
         $a['content'] = $this->models_admin->content('member');
@@ -40,9 +44,13 @@ class member extends MX_Controller {
     
      public function add(){
        
-        $a['title'] = "SamMarie Application";
+        $a['title'] = "SumberNews Application";
         $a['title2'] = "Tambah Member";
-        $a['menu'] = $this->models_admin->simple_menu($this->perm_user);
+        $a['permission'] = $this->perm_user;
+        $a['mweb'] = $this->models_admin->menu("web",$this->perm_user);
+        $a['mblog'] = $this->models_admin->menu("blog",  $this->perm_user);
+        $a['madmin'] = $this->models_admin->menu("admin",  $this->perm_user);
+        $a['mproducts'] = $this->models_admin->menu("products",$this->perm_user);
         $a['profile'] = $this->models_admin->profile_top($this->session->userdata("id_user"));
         $a['action'] = "member/save";
         
@@ -62,9 +70,13 @@ class member extends MX_Controller {
           else{
               $uri=$this->uri->segment(4);
             }
-        $a['title'] = "SamMarie Application";
+        $a['title'] = "SumberNews Application";
         $a['title2'] = "Tambah Member";
-        $a['menu'] = $this->models_admin->simple_menu($this->perm_user);
+        $a['permission'] = $this->perm_user;
+        $a['mweb'] = $this->models_admin->menu("web",$this->perm_user);
+        $a['mblog'] = $this->models_admin->menu("blog",  $this->perm_user);
+        $a['madmin'] = $this->models_admin->menu("admin",  $this->perm_user);
+        $a['mproducts'] = $this->models_admin->menu("products",$this->perm_user);
         $a['profile'] = $this->models_admin->profile_top($this->session->userdata("id_user"));
         $a['action'] = "member/saveupdate";
         
