@@ -21,7 +21,7 @@ class blog extends MX_Controller {
     }
     
     public function index(){
-        if ($this->perm_user=="administrator" && $this->logged_in=="ikehikehkimochi"){
+        $this->is_admin;
         $a['title'] = "Blog";
         $a['link'] = $this->perm_user."/blog/add";
         $a['permission'] = $this->perm_user;
@@ -32,18 +32,14 @@ class blog extends MX_Controller {
         $a['profile'] = $this->models_admin->profile_top($this->session->userdata("id_user"));
         $a['content'] = $this->models_admin->content('blog');
        
-        $this->load->view("admin/head",$a);
-        $this->load->view("admin/menu");
-        $this->load->view("admin/blog");
-        $this->load->view("admin/footer");
-        }
-        else{
-            redirect("auth/auth");
-        }
+        $this->load->view("basic/head",$a);
+        $this->load->view("basic/menu");
+        $this->load->view("index/blog");
+        $this->load->view("basic/footer");
     }
     
     public function add(){
-        if ($this->perm_user=="administrator" && $this->logged_in=="ikehikehkimochi"){
+        $this->is_admin;
         $a['title'] = "SamMarie Application - Tambah Artikel Blog";
         $a['title2'] = "Tambah Artikel Blog";
         $a['permission'] = $this->perm_user;
@@ -56,18 +52,14 @@ class blog extends MX_Controller {
         $a['link'] = $this->perm_user."/categories/add";
         $a['categories'] = $this->models_admin->categories('blog',null);
         
-        $this->load->view("admin/head",$a);
-        $this->load->view("admin/menu");
-        $this->load->view("admin/addblog");
-        $this->load->view("admin/footer");
-        }
-        else{
-            redirect("auth/auth");
-        }
+        $this->load->view("basic/head",$a);
+        $this->load->view("basic/menu");
+        $this->load->view("add/addblog");
+        $this->load->view("basic/footer");
     }
     
     public function save(){
-        if ($this->perm_user=="administrator" && $this->logged_in=="ikehikehkimochi"){
+        $this->is_admin;
         $this->form_validation->set_rules('title','Title','trim|required');
         $this->form_validation->set_rules('content','Source','trim|required');
         
@@ -138,14 +130,10 @@ class blog extends MX_Controller {
             }
         }
        }
-      }
-      else {
-          redirect("auth/auth");
-      }
     }
     
     public function saveupdate(){
-        if ($this->perm_user=="administrator" && $this->logged_in=="ikehikehkimochi"){
+        $this->is_admin;
         $this->form_validation->set_rules('title','Title','trim|required');
         $this->form_validation->set_rules('source','Source','trim|required');
         
@@ -221,15 +209,11 @@ class blog extends MX_Controller {
             }
         }
        }
-      }
-      else {
-          redirect("auth/auth");
-      }
     }
     
     public function update(){
-       if ($this->perm_user=="administrator" && $this->logged_in=="ikehikehkimochi"){
-           $uri="";
+        $this->is_admin;
+        $uri="";
            if ($this->uri->segment(4)===FALSE){
                $uri="";
            }
@@ -257,19 +241,15 @@ class blog extends MX_Controller {
             $a['status'] = $b->tb_status_blog;
         }
         
-        $this->load->view("admin/head",$a);
-        $this->load->view("admin/menu");
-        $this->load->view("admin/editblog");
-        $this->load->view("admin/footer");
-       }
-       else{
-           redirect("auth/auth");
-       }
+        $this->load->view("basic/head",$a);
+        $this->load->view("basic/menu");
+        $this->load->view("edit/editblog");
+        $this->load->view("basic/footer");
     }
     
     public function delete(){
-      if ($this->perm_user=="administrator" && $this->logged_in=="ikehikehkimochi"){
-           $uri="";
+        $this->is_admin;
+        $uri="";
            if ($this->uri->segment(4)===FALSE){
                $uri = "";
            }
@@ -280,16 +260,12 @@ class blog extends MX_Controller {
            $where['tb_id_blog'] = $uri;
            $this->db->delete("wq_blog",$where);
            $this->session->set_flashdata("result_action",'<div class="alert margin"><button type="button" class="close" data-dismiss="alert">X</button>Artikel Berhasil Di Hapus</div>');
-          redirect($this->perm_user."/blog");
-      }
-       else{
-          redirect("auth/auth");
-      }
+           redirect($this->perm_user."/blog");
     }
     
     public function approve(){
-        if ($this->perm_user=="administrator" && $this->logged_in=="ikehikehkimochi"){
-           $uri="";
+        $this->is_admin;
+        $uri="";
            if($this->uri->segment(4)===FALSE){
                $uri = "";
            }
@@ -301,11 +277,7 @@ class blog extends MX_Controller {
         $this->db->where('tb_id_blog',$id);
         $this->db->update("wq_blog",$where);
         $this->session->set_flashdata("result_action",'<div class="alert margin"><button type="button" class="close" data-dismiss="alert">X</button>Artikel Berhasil Di Publish</div>');
-        redirect($this->perm_user."/blog");
-        }
-        else{
-          redirect("auth/auth");
-      }
+        redirect($this->perm_user."/blog"); 
     }
        
 }

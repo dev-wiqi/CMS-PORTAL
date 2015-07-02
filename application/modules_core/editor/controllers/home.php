@@ -21,7 +21,7 @@ class home extends MX_Controller {
     }
     
     public function index(){
-        $this->is_admin;
+        $this->is_editor;
         $a['title'] = "SamMarie Application";
         $a['permission'] = $this->perm_user;
         $a['mweb'] = $this->models_admin->menu("web",$this->perm_user);
@@ -36,7 +36,7 @@ class home extends MX_Controller {
         $this->load->view("basic/head",$a);
         $this->load->view("basic/menu");
         $this->load->view("index/dashboard");
-         $this->load->view("basic/footer");
+        $this->load->view("basic/footer");
     }
        
 }
