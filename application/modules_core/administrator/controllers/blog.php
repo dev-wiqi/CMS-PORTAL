@@ -34,7 +34,7 @@ class blog extends MX_Controller {
        
         $this->load->view("basic/head",$a);
         $this->load->view("basic/menu");
-        $this->load->view("index/blog");
+        $this->load->view("admin/index/blog");
         $this->load->view("basic/footer");
     }
     
@@ -54,17 +54,17 @@ class blog extends MX_Controller {
         
         $this->load->view("basic/head",$a);
         $this->load->view("basic/menu");
-        $this->load->view("add/addblog");
+        $this->load->view("admin/add/addblog");
         $this->load->view("basic/footer");
     }
     
     public function save(){
-        $this->is_admin;
+        //$this->is_admin;
         $this->form_validation->set_rules('title','Title','trim|required');
         $this->form_validation->set_rules('content','Source','trim|required');
         
         if ($this->form_validation->run() == FALSE){
-           $error = "ini error"; 
+           echo "error Cok";
         }
         else{
           if(empty($_FILES['img']['name'])){
@@ -79,7 +79,7 @@ class blog extends MX_Controller {
                 redirect($this->perm_user."/blog");
           }
           else{
-            $config['upload_path'] = './media/blog/';
+            $config['upload_path'] = './media/blog/image/';
             $config['allowed_types']= 'gif|jpg|png|jpeg';
             $config['encrypt_name']	= TRUE;
             $config['remove_spaces']	= TRUE;	
@@ -87,13 +87,14 @@ class blog extends MX_Controller {
             $config['max_width']  	= '3000';
             $config['max_height']  	= '3000';
 			 
-            $this->load->library('upload', $config);
+            $this->load->library('upload');
+            $this->upload->initialize($config);
             
             if($this->upload->do_upload("img")){
                 $data = $this->upload->data();
                 
-                $source = "./media/blog/".$data['file_name'];
-                $thumb = "./media/blog/thumb";
+                $source = "./media/blog/image/".$data['file_name'];
+                $thumb = "./media/blog/image/thumb/";
                 
                 chmod($source, 0777);
                 
@@ -108,13 +109,21 @@ class blog extends MX_Controller {
 		$img['height'] = 100;
                 
 		// Configuration Of Image Manipulation :: Dynamic
-		$img['quality']      = '100%' ;
-                $img['source_image'] = $source ;
-		$img['new_image']    = $thumb ;
+		$img['quality']      = '100%';
+                $img['source_image'] = $source;
+		$img['new_image']    = $thumb;
+                $img['wm_type'] = 'overlay';
+                $img['wm_opacity'] = '50';
+                $img['wm_overlay_path'] = './media/wm/logo.png';
+                $img['wm_vrt_alignment'] = 'middle';
+                $img['wm_hor_alignment'] = 'center';
+                //$img['wm_hor_offset'] = '10';
+                //$img['wm_vrt_offset'] = '10';
 			 
 		// Do Resizing
 		$this->image_lib->initialize($img);
-		$this->image_lib->resize();
+                $this->image_lib->resize();
+                $this->image_lib->watermark();
 		$this->image_lib->clear() ;
                 
                 $insert['tb_image_blog'] = $data['file_name'];
@@ -127,6 +136,9 @@ class blog extends MX_Controller {
                 
                 $this->db->insert("wq_blog",$insert);
                 redirect($this->perm_user."/blog");
+            }
+            else{
+                 echo $this->upload->display_errors();
             }
         }
        }
@@ -243,7 +255,7 @@ class blog extends MX_Controller {
         
         $this->load->view("basic/head",$a);
         $this->load->view("basic/menu");
-        $this->load->view("edit/editblog");
+        $this->load->view("admin/edit/editblog");
         $this->load->view("basic/footer");
     }
     

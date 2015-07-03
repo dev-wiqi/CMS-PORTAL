@@ -35,7 +35,7 @@ class home extends MX_Controller {
        
         $this->load->view("basic/head",$a);
         $this->load->view("basic/menu");
-        $this->load->view("index/dashboard");
+        $this->load->view("admin/index/dashboard");
          $this->load->view("basic/footer");
     }
        

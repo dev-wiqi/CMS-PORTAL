@@ -174,7 +174,7 @@ class models_auth extends CI_Model {
             if (!empty($seslog)&&!empty($userlog)){
                 return redirect($userlog."/home");
             }
-            return redirect("auth/");
+            return redirect("auth/auth");
         }
     }
   
@@ -188,7 +188,7 @@ class models_auth extends CI_Model {
             if (!empty($seslog)&&!empty($userlog)){
                 return redirect($userlog."/home");
             }
-            return redirect("auth/");
+            return redirect("auth/auth");
         }
     }
     

@@ -33,10 +33,10 @@ class news extends MX_Controller {
         $a['profile'] = $this->models_admin->profile_top($this->session->userdata("id_user"));
         $a['content'] = $this->models_admin->content('news');
         
-        $this->load->view("admin/head",$a);
-        $this->load->view("admin/menu");
-        $this->load->view("admin/news");
-        $this->load->view("admin/footer");
+        $this->load->view("basic/head",$a);
+        $this->load->view("basic/menu");
+        $this->load->view("index/news");
+        $this->load->view("basic/footer");
         }
       
     function add(){
@@ -53,13 +53,54 @@ class news extends MX_Controller {
         $a['link'] = $this->perm_user."/news/add";
         $a['categories'] = $this->models_admin->categories('news',null);
         
-        $this->load->view("admin/head",$a);
-        $this->load->view("admin/menu");
-        $this->load->view("admin/addnews");
-        $this->load->view("admin/footer");
+        $this->load->view("basic/head",$a);
+        $this->load->view("basic/menu");
+        $this->load->view("add/addnews");
+        $this->load->view("basic/footer");
     }
     
     function update(){
+        $this->is_admin;
+        $uri="";
+          if($this->uri->segment(4)===FALSE){
+              show_error("Validation Error Bro",500);
+          }
+          else{
+              $uri=$this->uri->segment(4);
+          }
+        $a['title'] = "SumberNews - Edit Berita";
+        $a['title2'] = "Edit Berita";
+        $a['permission'] = $this->perm_user;
+        $a['mweb'] = $this->models_admin->menu("web",$this->perm_user);
+        $a['mblog'] = $this->models_admin->menu("blog",  $this->perm_user);
+        $a['madmin'] = $this->models_admin->menu("admin",  $this->perm_user);
+        $a['mproducts'] = $this->models_admin->menu("products",$this->perm_user);
+        $a['profile'] = $this->models_admin->profile_top($this->session->userdata("id_user"));
+        $a['action'] = $this->perm_user."/news/save";
+        $a['link'] = $this->perm_user."/news/add";
+        $a['categories'] = $this->models_admin->categories('news',null);
+        $whre['tb_id_news'] = $uri;
+        $content = $this->db_admin->get_where("wq_news",$whre);
+        foreach($content->result() as $b){
+            $a['id'] = $b->tb_id_news;
+            $a['name'] = $b->tb_name_news;
+            $a['link'] = $b->tb_link_news;
+            $a['icon'] = $b->tb_icon_news;
+        }
+        
+        $this->load->view("basic/head",$a);
+        $this->load->view("basic/menu");
+        $this->load->view("edit/editnews");
+        $this->load->view("basic/footer");
+    }
+    
+    function save(){
+        $this->is_admin;
+        
+    }
+    
+    function saveupdate(){
+        $this->is_admin;
         
     }
 }
