@@ -49,26 +49,11 @@
 	                                    </select>
 	                                </div>
 	                            </div>
-                               
-                               
-                               <div class="control-group">
-	                                <label class="control-label">Author: </label>
-	                                <div class="controls">
-	                                    <input type="text" class="input-medium" readonly id="req" name="author" value="<?php echo $this->session->userdata("username"); ?>"/>
-	                                </div>
-	                            </div>
-                                
-                                <div class="control-group">
-	                                <label class="control-label">Date : </label>
-	                                <div class="controls">
-	                                    <input type="text" class="input-small" readonly id="req" name="date" value="<?php echo date("Y-m-d"); ?>"/>
-	                                </div>
-	                            </div>
-
+                              
 	                            <div class="control-group">
 	                                <label class="control-label">Source: </label>
 	                                <div class="controls">
-	                                    <textarea name="content" class="ckeditor"></textarea>
+                                            <textarea name="content" class="ckeditor"></textarea>
 	                                </div>
 	                            </div>
                                

@@ -11,23 +11,9 @@
             <file>file:/C:/wamp/www/CMS/application/views/admin/products.php</file>
         </group>
         <group>
-            <file>file:/C:/xampp/htdocs/CMS-PORTAL/application/views/admin/head.php</file>
-            <file>file:/C:/xampp/htdocs/CMS-PORTAL/application/modules_core/administrator/controllers/menu_admin.php</file>
-            <file>file:/C:/xampp/htdocs/CMS-PORTAL/application/views/admin/menu.php</file>
             <file>file:/C:/xampp/htdocs/CMS-PORTAL/application/modules_core/administrator/controllers/products.php</file>
-            <file>file:/C:/xampp/htdocs/CMS-PORTAL/application/views/admin/addblog.php</file>
-            <file>file:/C:/xampp/htdocs/CMS-PORTAL/application/views/admin/addnews.php</file>
-            <file>file:/C:/xampp/htdocs/CMS-PORTAL/application/models/models_auth.php</file>
-            <file>file:/C:/xampp/htdocs/CMS-PORTAL/application/views/admin/footer.php</file>
-            <file>file:/C:/xampp/htdocs/CMS-PORTAL/application/views/admin/blog.php</file>
-            <file>file:/C:/xampp/htdocs/CMS-PORTAL/application/models/counter.php</file>
-            <file>file:/C:/xampp/htdocs/CMS-PORTAL/application/views/admin/news.php</file>
-            <file>file:/C:/xampp/htdocs/CMS-PORTAL/application/views/auth/login.php</file>
             <file>file:/C:/xampp/htdocs/CMS-PORTAL/application/modules_core/administrator/controllers/news.php</file>
             <file>file:/C:/xampp/htdocs/CMS-PORTAL/application/modules_core/administrator/controllers/blog.php</file>
-            <file>file:/C:/xampp/htdocs/CMS-PORTAL/application/models/models_admin.php</file>
-            <file>file:/C:/xampp/htdocs/CMS-PORTAL/application/modules_core/auth/controllers/auth.php</file>
-            <file>file:/C:/xampp/htdocs/CMS-PORTAL/application/modules_core/administrator/controllers/member.php</file>
         </group>
     </open-files>
 </project-private>

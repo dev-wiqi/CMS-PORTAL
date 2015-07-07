@@ -11,17 +11,15 @@ class news extends MX_Controller {
      * Website : http://wiqi.co
      */
     
-    
     function __construct() {
         parent::__construct();
         $this->db_admin = $this->load->database("admin",TRUE);
         $this->db = $this->load->database("default", TRUE);
-        $this->is_admin = $this->models_auth->is_admin();
         $this->perm_user=$this->encrypt->decode($this->session->userdata("permission"));
         }
     
     function index(){
-        $this->is_admin;
+        $this->models_auth->is_admin();
         $a['title'] = "News";
         $a['permission'] = $this->perm_user;
         $a['mweb'] = $this->models_admin->menu("web",$this->perm_user);
@@ -40,7 +38,7 @@ class news extends MX_Controller {
         }
       
     function add(){
-        $this->is_admin;
+        $this->models_auth->is_admin();
         $a['title'] = "SumberNews - Tambah Berita";
         $a['title2'] = "Tambah Berita";
         $a['permission'] = $this->perm_user;
@@ -60,7 +58,7 @@ class news extends MX_Controller {
     }
     
     function update(){
-        $this->is_admin;
+        $this->models_auth->is_admin();
         $uri="";
           if($this->uri->segment(4)===FALSE){
               show_error("Validation Error Bro",500);
@@ -95,12 +93,12 @@ class news extends MX_Controller {
     }
     
     function save(){
-        $this->is_admin;
+        $this->models_auth->is_admin();
         
     }
     
     function saveupdate(){
-        $this->is_admin;
+        $this->models_auth->is_admin();
         
     }
 }
